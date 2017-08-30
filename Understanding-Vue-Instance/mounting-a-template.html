@@ -1,0 +1,30 @@
+<script type="text/javascript" src="https://unpkg.com/vue@2.4.2"></script>
+
+<div id="app">
+	<p>{{ title }}</p>
+</div>
+
+<hr>
+
+<div id="app2">
+	
+</div>
+
+
+<script type="text/javascript">
+	var vm1 = new Vue({
+		data: {
+			title: 'This one is title',
+		},
+	});
+
+	vm1.$mount('#app');
+
+	var vm2 = new Vue({
+		template: '<h1>Hello!</h1>',
+	});
+
+	// vm2.$mount('#app2');
+	vm2.$mount();
+	document.getElementById('app2').appendChild(vm2.$el);
+</script>

@@ -1,0 +1,48 @@
+<script type="text/javascript" src="https://unpkg.com/vue@2.4.2"></script>
+
+<div id="app">
+	<p>{{ title }}</p>
+	<button @click="clickButton">Click Me</button>
+	<button @click="clickDestroy">Destroy Me</button>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+			title: 'Nice',
+		},
+		beforeCreate: function() {
+			console.log('beforeCreate()')
+		},
+		created: function() {
+			console.log('created()')
+		},
+		beforeMount: function() {
+			console.log('beforeMount()')
+		},
+		mounted: function() {
+			console.log('mounted()')
+		},
+		beforeUpdate: function() {
+			console.log('beforeUpdate()')
+		},
+		updated: function() {
+			console.log('updated()')
+		},
+		beforeDestroy: function() {
+			console.log('beforeDestroy()')
+		},
+		destroyed: function() {
+			console.log('destroyed()')
+		},
+		methods: {
+			clickButton: function() {
+				this.title = 'Nice Broo';
+			},
+			clickDestroy: function() {
+				this.$destroy();
+			}
+		}
+	});
+</script>
