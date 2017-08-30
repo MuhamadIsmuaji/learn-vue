@@ -1,0 +1,22 @@
+<script type="text/javascript" src="https://unpkg.com/vue@2.4.2"></script>
+
+<div id="app">
+	<p v-if="show">Now you see me! <span>Ismuaji</span></p>
+	<p v-else>Hello</p>
+	<template v-if="show">
+		<h1>Title inside a template</h1>
+		<p>Inside a template</p>
+	</template>
+	<p>Do you see me ?</p>
+	<hr>
+	<button @click="show= !show">Switch</button>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+			show: true,
+		}
+	});
+</script>

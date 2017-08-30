@@ -1,0 +1,6 @@
+Known options for Vue Instance:
+el => Connect to DOM
+data => To store data to be used
+methods => Methods of this Vue Instance
+computed => Dependent properties
+watch => Execute code upon data changes

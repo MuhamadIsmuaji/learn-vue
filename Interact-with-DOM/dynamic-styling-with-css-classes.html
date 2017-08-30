@@ -1,0 +1,35 @@
+<script type="text/javascript" src="https://unpkg.com/vue@2.4.2"></script>
+
+<style type="text/css">
+	.demo {
+		width: 100px;
+		height: 100px;
+		background-color: grey;
+		display: inline-block;
+		margin: 10px;
+	}
+
+	.red {
+		background-color: red;
+	}
+
+	.green {
+		background-color: green;
+	}
+</style>
+
+<div id="app">
+	<div class="demo" @click="attachedRed = !attachedRed" :class="{red: attachedRed}"></div>
+	<div class="demo" @click="attachedGreen = !attachedGreen" :class="{green: attachedGreen}"></div>
+	<div class="demo"></div>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+			attachedRed: false,
+			attachedGreen: false,
+		},
+	});
+</script>

@@ -1,0 +1,38 @@
+<script type="text/javascript" src="https://unpkg.com/vue@2.4.2"></script>
+
+<div id="app">
+	<button v-on:click="increase(2, $event)">Click me</button>
+	<button v-on:click="counter++">Click me</button>
+	<p>{{ counter * 2 > 10 ? 'Greater than 10' : 'Smaller than 10' }}</p>
+	<hr>
+	<p v-on:mousemove="updateCoordinates">
+		Coordinates: {{ x }} / {{ y }} - 
+		<!-- event.stop -> event modifier -->
+		<span v-on:mousemove.stop="">DEAD SPOT</span>
+	</p>
+	<!-- keyboard events -->
+	<input type="text" v-on:keyup.enter.space="alertMe">
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el: '#app',
+		data: {
+			counter: 0,
+			x: 0,
+			y: 0,
+		},
+		methods: {
+			increase: function(step, event) {
+				return this.counter += step;
+			},
+			updateCoordinates: function(event) {
+				this.x = event.clientX;
+				this.y = event.clientY;
+			},
+			alertMe: function() {
+				alert('alert');
+			}
+		},
+	});
+</script>
