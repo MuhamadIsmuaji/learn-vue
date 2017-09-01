@@ -1,0 +1,51 @@
+<script type="text/javascript" src="https://unpkg.com/vue@2.4.2"></script>
+
+<div id="app">
+	<my-cmp></my-cmp>
+	<hr>
+	<my-cmp></my-cmp>
+	<my-local></my-local>
+</div>
+
+<h1>App2</h1>
+
+<div id="app2">
+	<my-cmp></my-cmp>
+	<hr>
+	<my-cmp></my-cmp>
+</div>
+
+<script type="text/javascript">
+
+
+	// registering globally
+	Vue.component('my-cmp', {
+		data: function() {
+			return {
+				status: 'Critical'
+			}
+		},
+		template: '<p>Server status: {{ status }}</p>',
+	});
+
+	// registering locally
+	mylocal = {
+		data: function() {
+			return {
+				msg: 'This is local component',
+			}
+		},
+		template: '<p>{{ msg }}</p>',
+	};
+
+	new Vue({
+		el: '#app',
+		components: {
+			'my-local': mylocal
+		}
+	});
+
+	new Vue({
+		el: '#app2'
+	});
+</script>
